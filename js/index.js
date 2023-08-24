@@ -1,7 +1,20 @@
 // start jquery area
 console.log("hello");
+$(window).on("load",function(){
+    $("#preloader").delay(100).fadeOut("slow");
+})
 $(document).ready(function(){
     // console.log("hello");
+    // start nav bar 
+    $(window).on("scroll",function(){
+        console.log($(this).scrollTop());
+        if($(this).scrollTop() > 400){
+            $(".navbar").addClass("active");
+        }else {
+            $(".navbar").removeClass("active");
+        }
+    })
+    // end nav bar
     // start banner carousel
     $("#banner_carousel").owlCarousel({
         items : 1,
@@ -35,5 +48,9 @@ $(document).ready(function(){
         $("#testmonial_carousel").trigger('to.owl.carousel', [$(this).index(), 300]);
       });
     // end testmonial section
+
+    // start wow js
+    new WOW().init();
+    // end wow js
 })
 // end jquery area
